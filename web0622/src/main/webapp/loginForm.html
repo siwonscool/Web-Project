@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	
+	</head>
+	<body>
+		<h1>회원가입</h1> <hr>
+		<form action="./LS" method="post">
+			<table border="1">
+				<tr>
+					<td>
+						이메일(아이디)
+					</td>
+					<td>
+						<input type="text" name="id1">@
+						<select name="id2">
+							<option value="">선택하세요</option>
+							<option value="naver.com">naver.com</option>
+							<option value="daum.net">daum.net</option>
+							<option value="google.com">google.com</option>
+						</select>
+					</td>
+				</tr>
+					<td>
+						비밀번호
+					</td>
+					<td>
+						<input type="password" name="pw">
+					</td>
+				<tr>
+					<td>
+						비밀번호 확인
+					</td>
+					<td>
+						<input type="password" name="pw2">
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						소식지 수신여부
+					</td>
+					<td>
+						수신<input type="radio" value="access" name="mail">
+						미수신<input type="radio" value="ignore" name="mail">
+					</td>
+				</tr>
+			</table>
+			
+			<table border="1">
+				<tr>
+					<td>
+						관심연령
+					</td>
+					<td>
+						<select name="age">
+							<option value="10대">10대</option>
+							<option value="20대">20대</option>
+							<option value="30대">30대</option>
+							<option value="40대">40대</option>
+						</select>
+					</td>
+					<td>
+						성별
+					</td>
+					<td>
+						선택안함<input type="radio" name=gender id="none" class="pointer1" value="선택안합니다.">		
+						남자<input type="radio" name=gender id="male" class="pointer1" value="남자입니다.">	
+						여자<input type="radio" name=gender id="female" class="pointer1" value="여자입니다.">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						결혼여부
+					</td>
+					<td>
+						선택안함<input type="radio" name=married id="none" class="pointer1" value="선택안합니다.">		
+						미혼<input type="radio" name=married id="single" class="pointer1" value="미혼입니다">	
+						기혼<input type="radio" name=married id="married" class="pointer1" value="기혼입니다">
+					</td>
+					<td>
+						자녀유무
+					</td>
+					<td>
+						선택안함<input type="radio" name=child id="none" class="pointer1" value="선택안합니다.">		
+						없음<input type="radio" name=child id="yes" class="pointer1" value="없습니다.">	
+						있음<input type="radio" name=child id="no" class="pointer1" value="있습니다.">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						직업
+					</td>
+					<td>
+						<select name="job">
+							<option value="엔지니어">엔지니어</option>
+							<option value="사업가">사업가</option>
+							<option value="개발자">개발자</option>
+							<option value="자영업">자영업</option>
+						</select>
+					</td>
+				</tr>
+			</table>
+			
+			
+			<table border="1">
+				<tr>
+					<td>
+						<input type="checkbox" name="hobby" value="가정법률">가정법률
+						<input type="checkbox" name="hobby" value="아동,청소년/교육">아동,청소년/교육
+						<input type="checkbox" name="hobby" value="부동산/임대차">부동산/임대차
+						<input type="checkbox" name="hobby" value="금융/금전">금융/금전
+						<input type="checkbox" name="hobby" value="사업">사업
+						<input type="checkbox" name="hobby" value="창업">창업
+						<br>
+						<input type="checkbox" name="hobby" value="무역">무역
+						<input type="checkbox" name="hobby" value="소비자">소비자
+						<input type="checkbox" name="hobby" value="문화/여가생활">문화/여가생활
+						<input type="checkbox" name="hobby" value="민형사/소송">민형사/소송
+						<input type="checkbox" name="hobby" value="교툥/운전">교통/운전
+						<input type="checkbox" name="hobby" value="근로/노동">근로/노동
+						<br>
+						<input type="checkbox" name="hobby" value="복지">복지
+						<input type="checkbox" name="hobby" value="국방/보훈">국방/보훈
+						<input type="checkbox" name="hobby" value="정보통신/기술">정보통신/기술
+						<input type="checkbox" name="hobby" value="환경/에너지">환경/에너지
+						<input type="checkbox" name="hobby" value="사회안전/범죄">사회안전/범죄
+						<input type="checkbox" name="hobby" value="국가 및 지자체">국가 및 지자체
+						
+					</td>
+				</tr>
+			</table>
+			<input type="submit" value="저장">
+			<input type="reset" value="취소">
+			
+		</form>
+	
+	</body>
+</html>
