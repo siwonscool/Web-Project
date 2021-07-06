@@ -11,6 +11,7 @@
 <%
 request.setCharacterEncoding("utf-8");
 %>
+
 <jsp:useBean id="student" class="com.site.ex.Student" scope="page"/>
 <jsp:setProperty name="student" property="*"/>
 
