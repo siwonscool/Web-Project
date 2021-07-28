@@ -36,7 +36,6 @@ public class BDao {
 				pstmt.setString(2, "%"+keyword+"%");
 				pstmt.setInt(3, startrow);
 				pstmt.setInt(4, endrow);
-				rs=pstmt.executeQuery();
 				break;
 			case "title":
 				sql="select * from"
@@ -48,7 +47,6 @@ public class BDao {
 				pstmt.setString(1, "%"+keyword+"%");
 				pstmt.setInt(2, startrow);
 				pstmt.setInt(3, endrow);
-				rs=pstmt.executeQuery();
 				break;
 			case "content":
 				sql="select * from"
@@ -60,7 +58,6 @@ public class BDao {
 				pstmt.setString(1, "%"+keyword+"%");
 				pstmt.setInt(2, startrow);
 				pstmt.setInt(3, endrow);
-				rs=pstmt.executeQuery();
 				break;
 
 			default:
@@ -71,9 +68,9 @@ public class BDao {
 				pstmt=conn.prepareStatement(sql);
 				pstmt.setInt(1, startrow);
 				pstmt.setInt(2, endrow);
-				rs=pstmt.executeQuery();
 				break;
 			}
+			rs=pstmt.executeQuery();
 			while(rs.next()) {
 				bVo=new BVo(rs.getInt("bid"),rs.getString("btitle"),rs.getString("bcontent"),
 						rs.getString("bname"),rs.getInt("bgroup"),rs.getInt("bstep"),
@@ -115,27 +112,24 @@ public class BDao {
 				pstmt=conn.prepareStatement(sql);
 				pstmt.setString(1, "%"+keyword+"%");
 				pstmt.setString(2, "%"+keyword+"%");
-				rs=pstmt.executeQuery();
 				break;
 			case "title":
 				sql="select count(*) count from board where btitle like ?";
 				pstmt=conn.prepareStatement(sql);
 				pstmt.setString(1, "%"+keyword+"%");
-				rs=pstmt.executeQuery();
 				break;
 			case "content":
 				sql="select count(*) count from board where bcontent like ?";
 				pstmt=conn.prepareStatement(sql);
 				pstmt.setString(1, "%"+keyword+"%");
-				rs=pstmt.executeQuery();
 				break;
 
 			default:
 				sql="select count(*) count from board";
 				pstmt=conn.prepareStatement(sql);
-				rs=pstmt.executeQuery();
 				break;
 			}
+			rs=pstmt.executeQuery();
 			while(rs.next()) {
 				count=rs.getInt("count");
 			}

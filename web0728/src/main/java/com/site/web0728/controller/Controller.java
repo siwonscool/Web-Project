@@ -30,15 +30,15 @@ public class Controller extends HttpServlet {
 		BService bService = null; 
 		
 		if(fileName.equals("/member/login.do")) {
-			dis=request.getRequestDispatcher("./login.jsp");
+			dis=request.getRequestDispatcher("login.jsp");
 		}else if(fileName.equals("/member/doLogin.do")) {
 			mService = new MServiceLogin();
 			mService.excute(request, response);
-			dis=request.getRequestDispatcher("./doLogin.jsp");
+			dis=request.getRequestDispatcher("doLogin.jsp");
 		}else if(fileName.equals("/board/bList.do")) {
 			bService = new BServiceList();
 			bService.excute(request, response);
-			dis=request.getRequestDispatcher("./blist.jsp");
+			dis=request.getRequestDispatcher("blist.jsp");
 		}
 		
 		dis.forward(request, response);

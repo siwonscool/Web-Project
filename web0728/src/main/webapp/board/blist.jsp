@@ -16,7 +16,7 @@
 <section>
     <h1>NOTICE</h1>
     <div class="wrapper">
-      <form action="./blist.do" name="search" method="post">
+      <form action="bList.do" name="search" method="post">
         <select name="category" id="category">
           <option value="all">전체</option>
           <option value="title">제목</option>
@@ -65,16 +65,16 @@
     <ul class="page-num">
       <%--start 버튼 --%>
       <c:if test="${page==1}">
-        <a href="#"><li class="first"></li></a>
+        <li class="first"></li>
       </c:if>
 
       <c:if test="${page!=1}">
-        <a href="./boardList.do?page=${1}"><li class="first"></li></a>
+        <a href="./bList.do?page=1&category=${category}&keyword=${keyword}"><li class="first"></li></a>
       </c:if>
       
       <!-- preview 버튼 -->
       <c:if test="${page!=1}">
-        <a href="./boardList.do?page=${page-1}"> <li class="prev"></li> </a>
+        <a href="./bList.do?page=${page-1}&category=${category}&keyword=${keyword}"> <li class="prev"></li> </a>
       </c:if>
       <c:if test="${page==1}">
         <li class="prev"></li>
@@ -83,7 +83,7 @@
       <!-- 넘버링 for문 -->
       <c:forEach var="pageNum" begin="${startpage}" end="${endpage}">
         <c:if test="${pageNum !=page}">
-          <a href="./boardList.do?page=${pageNum}"><li class="num"><div>${pageNum }</div></li></a>
+          <a href="./bList.do?page=${pageNum}&category=${category}&keyword=${keyword}"><li class="num"><div>${pageNum }</div></li></a>
         </c:if>
         <c:if test="${pageNum ==page}">
           <li class="num"><div>${pageNum}</div></li>
@@ -92,17 +92,17 @@
       
       <!-- next 버튼 -->
       <c:if test="${page!=maxpage}">
-        <a href="./boardList.do?page=${page+1}"> <li class="next"></li> </a>
+        <a href="./bList.do?page=${page+1}&category=${category}&keyword=${keyword}"> <li class="next"></li> </a>
       </c:if>
       <c:if test="${page==maxpage}">
         <li class="next"></li>
       </c:if>
       
       <c:if test="${page==maxpage}">
-        <a href="#"><li class="last"></li></a>
+        <li class="last"></li>
       </c:if>
       <c:if test="${page!=maxpage}">
-        <a href="./boardList.do?page=${maxpage}"><li class="last"></li></a>
+        <a href="./bList.do?page=${maxpage}&category=${category}&keyword=${keyword}"><li class="last"></li></a>
       </c:if>
     </ul>
 
