@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.site.web0725.Service.BService;
+import com.site.web0725.Service.Service;
 import com.site.web0725.Service.BServiceList;
 import com.site.web0725.Service.BServiceView;
 import com.site.web0725.Service.BServiceWrite;
@@ -24,7 +24,7 @@ public class BController extends HttpServlet {
 		String uri = request.getRequestURI();
 		String contextPath = request.getContextPath();
 		String fpath=uri.substring(contextPath.length());
-		BService bservice= null;		
+		Service bservice= null;		
 		RequestDispatcher dp = null;
 		
 		if(fpath.equals("/board/blist.do")) {

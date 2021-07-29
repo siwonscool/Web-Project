@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.site.web0725.Vo.BVo;
 import com.site.web0726.Dao.BDao;
 
-public class BServiceView implements BService {
+public class BServiceView implements Service {
 
 	@Override
 	public void excute(HttpServletRequest request, HttpServletResponse response) {

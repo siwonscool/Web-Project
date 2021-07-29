@@ -10,7 +10,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.oreilly.servlet.multipart.FileRenamePolicy;
 import com.site.web0726.Dao.BDao;
 
-public class BServiceWrite implements BService {
+public class BServiceWrite implements Service {
 
 	@Override
 	public void excute(HttpServletRequest request, HttpServletResponse response) {
