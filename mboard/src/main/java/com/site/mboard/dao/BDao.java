@@ -26,6 +26,60 @@ public class BDao {
 		return ds.getConnection();
 	}
 	
+	//다음글 이전글 rnum 받아오기
+	public int boardNext(int bid) {
+		int result=0;
+		try {
+			conn=this.getConnection();
+			String sql="select min(bid) as id from(select rownum as rnum,b.* from(select * from board)b order by bgroup desc)\r\n"
+					+ "where bid>?";
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, bid);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				result = rs.getInt("id");
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs!=null)rs.close();
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return result;
+	}
+	public int boardBefore(int bid) {
+		int result=0;
+		try {
+			conn=this.getConnection();
+			String sql="select max(bid) as id from(select rownum as rnum,b.* from(select * from board)b order by bgroup desc)\r\n"
+					+ "where bid<?";
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, bid);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				result = rs.getInt("id");
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(rs!=null)rs.close();
+				if(pstmt!=null)pstmt.close();
+				if(conn!=null)conn.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return result;
+	}
+	
 	//게시글 수정
 	public int boardModifyUpdate(String bid,String btitle,String bcontent,String bupload) {
 		int result=0;
@@ -105,14 +159,14 @@ public class BDao {
 	}//boardWriteInsert
 	
 	//bview페이지 select
-	public BVo boardOneSelect(String bid) {
+	public BVo boardOneSelect(int bid) {
 		BVo bVo=null;
 		String sql="";
 		try {
 			conn=this.getConnection();
 			sql="select * from board where bid=?";
 			pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1, bid);
+			pstmt.setInt(1, bid);
 			rs=pstmt.executeQuery();
 			if(rs.next()) {
 				bVo = new BVo(rs.getInt("bid"),rs.getString("btitle"),rs.getString("bcontent"),rs.getString("bname")
@@ -120,7 +174,7 @@ public class BDao {
 						,rs.getString("bupload"),rs.getInt("bhit"));
 				sql="update board set bhit=bhit+1 where bid=?";
 				pstmt=conn.prepareStatement(sql);
-				pstmt.setString(1, bid);
+				pstmt.setInt(1, bid);
 				pstmt.executeQuery();
 			}
 		} catch (Exception e) {

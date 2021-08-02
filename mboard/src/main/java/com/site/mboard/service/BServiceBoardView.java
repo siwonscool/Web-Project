@@ -11,8 +11,13 @@ public class BServiceBoardView implements Service {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		BDao bDao = new BDao();
-		BVo bVo = bDao.boardOneSelect(request.getParameter("bid"));
+		int bid= Integer.parseInt(request.getParameter("bid"));
+		BVo bVo = bDao.boardOneSelect(bid);
+		BVo bVoN = bDao.boardOneSelect(bDao.boardNext(bid));
+		BVo bVoB = bDao.boardOneSelect(bDao.boardBefore(bid));
 		request.setAttribute("bVo", bVo);
+		request.setAttribute("bVoN", bVoN);
+		request.setAttribute("bVoB", bVoB);
 		request.setAttribute("category", request.getParameter("category"));
 		request.setAttribute("keyword", request.getParameter("keyword"));
 	}

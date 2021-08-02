@@ -43,10 +43,10 @@
         </td>
       </tr>
       <tr>
-        <td colspan="3"><strong>다음글</strong> <span class="separator">|</span> [키즈잼] 2월 프로그램 안내</td>
+        <td colspan="3"><strong>다음글</strong> <span class="separator">|</span> <a href="bView.do?bid=${bVoN.bid}&category=${category}&keyword=${keyword}">${bVoN.btitle}</a></td>
       </tr>
       <tr>
-        <td colspan="3"><strong>이전글</strong> <span class="separator">|</span> [키즈잼] 2020년 1분기 정기 휴관일 안내</td>
+        <td colspan="3"><strong>이전글</strong> <span class="separator">|</span> <a href="bView.do?bid=${bVoB.bid}&category=${category}&keyword=${keyword}">${bVoB.btitle}</a></td>
       </tr>
     </table>
 
